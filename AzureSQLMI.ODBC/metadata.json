@@ -1,0 +1,90 @@
+{
+  "name": "AzureSQLMI.ODBC",
+  "description": "Azure SQL Managed Instance ODBC Connector for Power Query with ApplicationIntent=ReadOnly",
+  "version": "1.0.0",
+  "author": "Development Team",
+  "company": "Your Organization",
+  "category": "Database",
+  "sourceKind": "AzureSQLMI",
+  "displayName": "Azure SQL MI (ODBC - ReadOnly)",
+  "helpUrl": "https://learn.microsoft.com/en-us/sql/relational-databases/databases/single-database-manage",
+  "features": [
+    "ODBC Driver 17 for SQL Server",
+    "ApplicationIntent=ReadOnly (Hardcoded)",
+    "TLS Encryption Enforced",
+    "Multiple Authentication Methods",
+    "Schema Navigation",
+    "Direct SQL Query Support"
+  ],
+  "requirements": {
+    "minPowerQueryVersion": "2.95.0",
+    "odbcDriver": "ODBC Driver 17 for SQL Server",
+    "network": "Access to Azure SQL MI port 1433"
+  },
+  "credentials": [
+    {
+      "type": "UsernamePassword",
+      "displayName": "SQL Server Authentication"
+    },
+    {
+      "type": "Windows",
+      "displayName": "Windows Authentication / Integrated Security"
+    }
+  ],
+  "connectionParameters": [
+    {
+      "name": "Server",
+      "type": "text",
+      "required": true,
+      "displayName": "Server",
+      "helpText": "Azure SQL MI server FQDN (e.g., myserver.public.xxxxx.database.windows.net)"
+    },
+    {
+      "name": "Database",
+      "type": "text",
+      "required": false,
+      "displayName": "Database",
+      "helpText": "Database name (optional, defaults to master)"
+    },
+    {
+      "name": "Username",
+      "type": "text",
+      "required": false,
+      "displayName": "Username",
+      "helpText": "SQL login username (not needed for Windows auth)"
+    },
+    {
+      "name": "Password",
+      "type": "password",
+      "required": false,
+      "displayName": "Password",
+      "helpText": "SQL login password (not needed for Windows auth)"
+    },
+    {
+      "name": "UseIntegratedSecurity",
+      "type": "boolean",
+      "required": false,
+      "displayName": "Use Windows Authentication",
+      "helpText": "Use integrated security / Windows authentication"
+    }
+  ],
+  "connectionString": "Driver={ODBC Driver 17 for SQL Server};Server=<server>;Database=<database>;Uid=<username>;Pwd=<password>;ApplicationIntent=ReadOnly;Encrypt=yes;TrustServerCertificate=no",
+  "readOnly": true,
+  "hardcodedSecurityFeatures": [
+    "ApplicationIntent=ReadOnly",
+    "Encrypt=yes",
+    "TrustServerCertificate=no"
+  ],
+  "supportedOperations": [
+    "TableNavigation",
+    "DirectQuery",
+    "SchemaDiscovery"
+  ],
+  "limitations": [
+    "Read-only connections only",
+    "ODBC Driver 17+ required",
+    "Network access to SQL MI required",
+    "No write operations supported"
+  ],
+  "releaseNotes": "Initial release with hardcoded ApplicationIntent=ReadOnly for enforced read-only access to Azure SQL Managed Instance"
+}
