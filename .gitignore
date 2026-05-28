@@ -1,0 +1,44 @@
+# IDE and Editor
+.vscode/
+.vs/
+*.code-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project specific
+*.backup
+*.bak
+*.log
+*.tmp
+
+# User specific
+.user
+.settings
+local.json
+
+# Dependencies (if added)
+node_modules/
+packages/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Test results
+test-results/
+coverage/
+
+# Environment files
+.env
+.env.local
+*.pdb
+
+# Temporary files
+~$*
